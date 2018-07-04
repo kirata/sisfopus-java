@@ -5,6 +5,8 @@
  */
 package sisfopus;
 
+import java.awt.Desktop;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,6 +62,7 @@ public class FormMenuUtamaPustakawan extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         mnPengaturanJumlahDenda = new javax.swing.JMenuItem();
         mnPengaturanPassword = new javax.swing.JMenuItem();
+        btnUpdate = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -159,6 +162,14 @@ public class FormMenuUtamaPustakawan extends javax.swing.JFrame {
             }
         });
         jMenu5.add(mnPengaturanPassword);
+
+        btnUpdate.setText("Download Update Versi Terbaru");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jMenu5.add(btnUpdate);
 
         jMenuBar1.add(jMenu5);
 
@@ -291,6 +302,16 @@ public class FormMenuUtamaPustakawan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnLaporanTransaksiPengembalianActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        try {
+            JOptionPane.showMessageDialog(null,"Kunjungi https://github.com/kirata/sisfopus-java");
+            Desktop.getDesktop().browse(new URL("https://github.com/kirata/sisfopus-java").toURI());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Gagal Membuka Link "+e);
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +351,7 @@ public class FormMenuUtamaPustakawan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
