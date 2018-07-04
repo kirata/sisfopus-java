@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM pegawai;]]>
+	</queryString>
+	<field name="kode_pegawai" class="java.lang.String"/>
+	<field name="nip" class="java.lang.String"/>
+	<field name="password" class="java.lang.String"/>
+	<field name="nama_pegawai" class="java.lang.String"/>
+	<field name="telepon_pegawai" class="java.lang.String"/>
+	<field name="level_pegawai" class="java.lang.String"/>
+	<field name="status_pegawai" class="java.lang.String"/>
+	<group name="kode_pegawai">
+		<groupExpression><![CDATA[$F{kode_pegawai}]]></groupExpression>
+	</group>
+	<group name="nip">
+		<groupExpression><![CDATA[$F{nip}]]></groupExpression>
+	</group>
+	<group name="password">
+		<groupExpression><![CDATA[$F{password}]]></groupExpression>
+	</group>
+	<group name="nama_pegawai">
+		<groupExpression><![CDATA[$F{nama_pegawai}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="121" y="25" width="300" height="20"/>
+				<textElement/>
+				<text><![CDATA[      DATA PEGAWAI PERPUSTAKAAN SEKOLAH TINGGI SEKALI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[kode_pegawai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nip]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nama_pegawai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[level_pegawai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[status_pegawai]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{kode_pegawai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nama_pegawai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{level_pegawai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{status_pegawai}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM peminjaman_pengembalian INNER JOIN pegawai  ON peminjaman_pengembalian.kode_pegawai=pegawai.kode_pegawai INNER JOIN member ON peminjaman_pengembalian.kode_member=member.kode_member INNER JOIN buku ON peminjaman_pengembalian.kode_buku=buku.kode_buku WHERE peminjaman_pengembalian.status_pinjam != '1' ORDER BY waktu_pengembalian DESC;]]>
+	</queryString>
+	<field name="kode_peminjaman" class="java.lang.String"/>
+	<field name="waktu_mulai_peminjaman" class="java.sql.Timestamp"/>
+	<field name="waktu_pengembalian" class="java.sql.Timestamp"/>
+	<field name="status_pinjam" class="java.lang.String"/>
+	<field name="jumlah_hari_keterlambatan" class="java.lang.Integer"/>
+	<field name="denda_perhari" class="java.lang.Integer"/>
+	<field name="total_denda" class="java.lang.Integer"/>
+	<field name="nama_member" class="java.lang.String"/>
+	<field name="nim_member" class="java.lang.String"/>
+	<field name="judul_buku" class="java.lang.String"/>
+	<field name="penulis_buku" class="java.lang.String"/>
+	<group name="kode_peminjaman">
+		<groupExpression><![CDATA[$F{kode_peminjaman}]]></groupExpression>
+	</group>
+	<group name="waktu_mulai_peminjaman">
+		<groupExpression><![CDATA[$F{waktu_mulai_peminjaman}]]></groupExpression>
+	</group>
+	<group name="waktu_pengembalian">
+		<groupExpression><![CDATA[$F{waktu_pengembalian}]]></groupExpression>
+	</group>
+	<group name="status_pinjam">
+		<groupExpression><![CDATA[$F{status_pinjam}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="44" y="32" width="470" height="20"/>
+				<textElement/>
+				<text><![CDATA[      DATA TRANSAKSI PENGEMBALIAN BUKU PERPUSTAKAAN SEKOLAH TINGGI SEKALI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="71" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kode Pinjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="0" width="35" height="20"/>
+				<textElement/>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[JUDUL BUKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[PENULIS BUKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="0" width="71" height="20"/>
+				<textElement/>
+				<text><![CDATA[MULAI PINJAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[PENGEMBALIAN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="71" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{kode_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="35" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nim_member}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nama_member}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{judul_buku}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{penulis_buku}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="71" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{waktu_mulai_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{waktu_pengembalian}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
